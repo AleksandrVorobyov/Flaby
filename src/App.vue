@@ -10,6 +10,12 @@
   --textGrey: #4d4d4d;
   --btnDoubleBg: #479ee1cc;
 
+  --whiteBg: #fff;
+
+  --mainTextTitle: #494949;
+  --mainTextDesc: #7c7c7c;
+  --btnBlueBg: #66d4f4;
+
   --fontRalewayBold: "Raleway-Bold";
   --fontRalewayBoldExtra: "Raleway-ExtraBold";
   --fontRalewayMedium: "Raleway-Medium";
@@ -27,7 +33,6 @@
 body {
   display: block;
   width: 100%;
-  height: 200vh;
   font-family: var(--fontRobotoSlabRegular);
 }
 
@@ -40,7 +45,7 @@ ul {
 }
 
 .container {
-  max-width: 1180px;
+  max-width: 1170px;
   width: 100%;
   margin: 0 auto;
   padding: 0 30px;

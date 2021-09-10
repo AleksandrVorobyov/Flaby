@@ -34,8 +34,13 @@ export default {
 .services-our {
   position: relative;
   padding: 100px 0 150px;
+  background: var(--whiteBg);
   overflow: hidden;
   z-index: 500;
+}
+
+.services-our__title {
+  margin-bottom: 85px;
 }
 
 .services-our__items {
@@ -44,10 +49,32 @@ export default {
   gap: 30px;
 }
 
+.services-our__item {
+  padding: 0 25px;
+}
+
+.services-our__item-img {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 45px;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
 .services-our__item-title {
+  margin-bottom: 30px;
   font-size: 18px;
   font-family: var(--fontRalewayBold);
-  color: rgb(73, 73, 73);
+  color: var(--mainTextTitle);
   font-weight: bold;
   line-height: 1;
   text-align: center;
@@ -56,8 +83,8 @@ export default {
 .services-our__item-desc {
   font-size: 14px;
   font-family: var(--fontRobotoSlabRegular);
-  color: rgb(124, 124, 124);
-  line-height: 1;
+  color: var(--mainTextDesc);
+  line-height: 2;
   text-align: center;
 }
 </style>

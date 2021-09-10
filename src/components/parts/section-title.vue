@@ -27,7 +27,7 @@ export default {
   content: "";
   width: 30px;
   height: 2px;
-  background-color: rgb(46, 176, 236);
+  background-color: #2eb0ec;
 }
 
 .section-title__subtitle {
@@ -35,7 +35,7 @@ export default {
   margin-bottom: 15px;
   font-size: 18px;
   font-family: var(--fontRobotoSlabRegular);
-  color: #7c7c7c;
+  color: var(--mainTextDesc);
   line-height: 1;
   font-weight: 400;
   text-align: center;
@@ -46,7 +46,7 @@ export default {
   margin: 0 auto;
   font-size: 24px;
   font-family: var(--fontRobotoSlabRegular);
-  color: #494949;
+  color: var(--mainTextTitle);
   text-transform: uppercase;
   line-height: 1;
   text-align: center;

@@ -230,7 +230,7 @@ export default {
   top: 0;
   left: 0;
   border-radius: 50%;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--whiteBg);
   opacity: 0.1;
   width: 628px;
   height: 628px;

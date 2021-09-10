@@ -19,12 +19,12 @@ export default {
   position: relative;
   padding: 20px 35px 20px 35px;
   display: inline-flex;
-  background-color: rgb(255, 255, 255);
+  background: var(--whiteBg);
   box-shadow: 0px 8px 11px 0px rgba(54, 54, 54, 0.15);
   border-radius: 10px;
   font-size: 20px;
   font-family: var(--fontRalewayBold);
-  color: rgb(62, 62, 62);
+  color: #3e3e3e;
   font-weight: bold;
   line-height: 2;
   transition: opacity 0.4s linear, box-shadow 0.4s linear;
