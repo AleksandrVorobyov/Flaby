@@ -141,4 +141,26 @@ export default {
   line-height: 2.177;
   text-align: center;
 }
+
+.price-cards__list-btn {
+  position: relative;
+  padding: 18px 50px;
+  font-size: 14px;
+  font-family: var(--fontRalewayMedium);
+  color: var(--textWhite);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1;
+  background-color: rgb(102, 212, 244);
+  border-radius: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s linear, opacity 0.3s linear;
+
+  &:hover {
+    box-shadow: 0px 0px 51px 0px rgba(92, 149, 161, 0.33);
+    opacity: .7;
+  }
+}
 </style>

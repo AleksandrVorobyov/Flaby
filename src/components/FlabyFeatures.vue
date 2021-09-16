@@ -161,12 +161,13 @@ export default {
   cursor: pointer;
   border: none;
   background: var(--btnBlueBg);
-  transition: box-shadow 0.3s linear;
   border-radius: 24px;
   overflow: hidden;
+  transition: box-shadow 0.3s linear, opacity 0.3s linear;
 
   &:hover {
-    box-shadow: 0px 10px 16px 0px rgba(102, 212, 244, 0.3);
+    box-shadow: 0px 0px 51px 0px rgba(92, 149, 161, 0.33);
+    opacity: 0.7;
   }
 }
 </style>
