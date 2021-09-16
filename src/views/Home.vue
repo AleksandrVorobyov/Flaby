@@ -7,6 +7,8 @@
     flaby-services-our
     flaby-features
     flaby-services-other
+    flaby-download
+    flaby-price-cards
 </template>
 
 <script>
@@ -16,6 +18,8 @@ import FlabyNavigation from "@/components/FlabyNavigation.vue";
 import FlabyServicesOur from "@/components/FlabyServicesOur.vue";
 import FlabyFeatures from "@/components/FlabyFeatures.vue";
 import FlabyServicesOther from "@/components/FlabyServicesOther.vue";
+import FlabyDownload from "@/components/FlabyDownload.vue";
+import FlabyPriceCards from "@/components/FlabyPriceCards.vue";
 
 export default {
   name: "Home",
@@ -25,6 +29,8 @@ export default {
     FlabyServicesOur,
     FlabyFeatures,
     FlabyServicesOther,
+    FlabyDownload,
+    FlabyPriceCards,
   },
 };
 </script>

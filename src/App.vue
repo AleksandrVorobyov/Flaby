@@ -1,6 +1,6 @@
 <template lang="pug">
 #page.page
-  <router-view/>
+  router-view
 </template>
 
 <style lang="scss">
@@ -42,6 +42,7 @@ a {
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 .container {
