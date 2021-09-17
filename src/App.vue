@@ -11,6 +11,9 @@
   --btnDoubleBg: #479ee1cc;
 
   --whiteBg: #fff;
+  --bgFacebook: #3b579d;
+  --bgGoogle: #da4835;
+  --bgTwitter: #55acee;
 
   --mainTextTitle: #494949;
   --mainTextDesc: #7c7c7c;

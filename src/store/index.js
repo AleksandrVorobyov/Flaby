@@ -7,6 +7,8 @@ import FlabyServicesOther from './modules/FlabyServicesOther'
 import FlabyDownload from './modules/FlabyDownload'
 import FlabyPriceCards from './modules/FlabyPriceCards'
 import FlabySubscribe from './modules/FlabySubscribe'
+import FlabyFooter from './modules/FlabyFooter'
+import FlabyCopy from './modules/FlabyCopy'
 
 export default createStore({
   state: {
@@ -26,5 +28,7 @@ export default createStore({
     FlabyDownload,
     FlabyPriceCards,
     FlabySubscribe,
+    FlabyFooter,
+    FlabyCopy,
   }
 })

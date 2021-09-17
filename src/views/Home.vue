@@ -10,10 +10,12 @@
     flaby-download
     flaby-price-cards
     flaby-subscribe
+  footer
+    flaby-footer
+    flaby-copy
 </template>
 
 <script>
-// @ is an alias to /src
 import FlabyHeader from "@/components/FlabyHeader.vue";
 import FlabyNavigation from "@/components/FlabyNavigation.vue";
 import FlabyServicesOur from "@/components/FlabyServicesOur.vue";
@@ -22,6 +24,8 @@ import FlabyServicesOther from "@/components/FlabyServicesOther.vue";
 import FlabyDownload from "@/components/FlabyDownload.vue";
 import FlabyPriceCards from "@/components/FlabyPriceCards.vue";
 import FlabySubscribe from "@/components/FlabySubscribe.vue";
+import FlabyFooter from "@/components/FlabyFooter.vue";
+import FlabyCopy from "@/components/FlabyCopy.vue";
 
 export default {
   name: "Home",
@@ -34,6 +38,8 @@ export default {
     FlabyDownload,
     FlabyPriceCards,
     FlabySubscribe,
+    FlabyFooter,
+    FlabyCopy,
   },
 };
 </script>

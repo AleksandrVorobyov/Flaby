@@ -81,7 +81,7 @@ export default {
   &:focus {
     border: 2px solid rgba(0, 0, 0, 0.3);
     background: rgb(255, 255, 255);
-    box-shadow: 0px 8px 16px 0px rgba(92, 149, 161, 0.07);
+    box-shadow: 0px 8px 16px 0px rgba(92, 149, 161, 0.3);
   }
 }
 
