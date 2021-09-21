@@ -2,18 +2,14 @@
 section.features
   .container
     .features-wrap
-      .features-col
-        .features-img
-          img(:src="require('@/assets/img/' + featuresInfo.imgSrc)")
-      .features-col
-        .features__info
-          h5.features__info-subtitle {{ featuresInfo.subtitle }}
-          h3.features__info-title {{ featuresInfo.title }}
-          p.features__info-desc {{ featuresInfo.desc }}
-          ul.features__info-list
-            li.features__info-list-item(v-for="item in featuresInfo.list")
-              span {{ item }}
-          button.features__info-btn {{ featuresInfo.btn }}
+      .features__info
+        h5.features__info-subtitle {{ featuresInfo.subtitle }}
+        h3.features__info-title {{ featuresInfo.title }}
+        p.features__info-desc {{ featuresInfo.desc }}
+        ul.features__info-list
+          li.features__info-list-item(v-for="item in featuresInfo.list")
+            span {{ item }}
+        button.features__info-btn {{ featuresInfo.btn }}
 </template>
 
 <script>
@@ -29,18 +25,22 @@ export default {
 <style scoped lang="scss">
 .features {
   position: relative;
-  padding: 120px 0 100px;
+  padding: 65px 0px 65px;
   background: url("~@/assets/img/features/bg.jpg") center center / cover
     no-repeat;
   overflow: hidden;
   z-index: 500;
+
+  @media (min-width: 480px) {
+    padding: 120px 0 100px;
+  }
 }
 
 .features-wrap {
   position: relative;
-  display: grid;
-  grid-template-columns: 445px 540px;
-  gap: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &::before {
     position: absolute;
@@ -52,6 +52,46 @@ export default {
     width: 830px;
     background: url("~@/assets/img/features/iPad.png");
     filter: drop-shadow(-10px 10px 10px rgba(0, 0, 0, 0.4));
+    z-index: -10;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 58%;
+    right: -150px;
+    transform: translateY(-50%);
+    height: 470px;
+    width: 450px;
+    background: url("~@/assets/img/features/iPhone.png") bottom right / contain
+      no-repeat;
+    filter: drop-shadow(-10px 10px 10px rgba(0, 0, 0, 0.4));
+    z-index: -10;
+
+    @media (min-width: 970px) {
+      left: -105px;
+    }
+  }
+
+  @media (min-width: 970px) {
+    display: block;
+  }
+}
+
+.features__info {
+  max-width: 440px;
+  padding: 10px 20px;
+  background: rgb(236, 231, 231);
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px #dbd6d6;
+
+  @media (min-width: 970px) {
+    margin-left: auto;
+    max-width: 540px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
 
@@ -81,31 +121,43 @@ export default {
 
 .features__info-subtitle {
   margin-bottom: 25px;
-  font-size: 22px;
+  font-size: 18px;
   font-family: var(--fontRalewayBold);
   color: rgba(73, 73, 73, 0.4);
   font-weight: bold;
   line-height: 1;
   text-align: left;
+
+  @media (min-width: 480px) {
+    font-size: 22px;
+  }
 }
 
 .features__info-title {
   margin-bottom: 35px;
-  font-size: 32px;
+  font-size: 26px;
   font-family: var(--fontRalewayBold);
   color: var(--mainTextTitle);
   font-weight: bold;
   line-height: 1.2;
   text-align: left;
+
+  @media (min-width: 480px) {
+    font-size: 32px;
+  }
 }
 
 .features__info-desc {
   margin-bottom: 60px;
-  font-size: 20px;
+  font-size: 16px;
   font-family: var(--fontRalewayBold);
   color: var(--mainTextDesc);
   line-height: 1.6;
   text-align: left;
+
+  @media (min-width: 480px) {
+    font-size: 20px;
+  }
 }
 
 .features__info-list {

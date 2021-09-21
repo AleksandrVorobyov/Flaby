@@ -33,10 +33,14 @@ export default {
 <style scoped lang="scss">
 .services-our {
   position: relative;
-  padding: 100px 0 150px;
+  padding: 65px 0px 65px;
   background: var(--whiteBg);
   overflow: hidden;
   z-index: 500;
+
+  @media (min-width: 480px) {
+    padding: 100px 0 150px;
+  }
 }
 
 .services-our__title {
@@ -45,8 +49,21 @@ export default {
 
 .services-our__items {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 300px;
   gap: 30px;
+  border-left: 2px solid var(--header-bg);
+  border-right: 2px solid var(--header-bg);
+  justify-content: center;
+
+  @media (min-width: 720px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 970px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    border-left: 0px solid var(--header-bg);
+    border-right: 0px solid var(--header-bg);
+  }
 }
 
 .services-our__item {

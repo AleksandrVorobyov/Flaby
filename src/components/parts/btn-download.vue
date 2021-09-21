@@ -17,6 +17,7 @@ export default {
 <style scoped lang="scss">
 .btn-download {
   position: relative;
+  width: 100%;
   padding: 20px 35px 20px 35px;
   display: inline-flex;
   background: var(--whiteBg);
@@ -31,6 +32,10 @@ export default {
 
   img + span {
     margin-left: 15px;
+  }
+
+  @media (min-width: 720px) {
+    width: auto;
   }
 }
 

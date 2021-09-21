@@ -12,7 +12,6 @@ export default {
         "Full one page flat and modern trend following goods.",
       ],
       btn: "Read More",
-      imgSrc: "features/iPhone.png"
     },
   },
   getters: {

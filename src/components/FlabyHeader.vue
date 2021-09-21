@@ -11,20 +11,9 @@ section.header
         .header__btns
           btn-download(:link="googleStore.href", :text="googleStore.text")
           router-link.header-btn(to="/blog") Learn More
-      .header-col
-        .header__phone
-          .header__phone-border
-            img(
-              :src="require('@/assets/img/' + headerPhone.borderSrc)",
-              :alt="headerPhone.borderAlt"
-            )
-          .header__phone-img
-            img(
-              :src="require('@/assets/img/' + headerPhone.imgBgSrc)",
-              :alt="headerPhone.imgBgAlt"
-            )
-          .header-elipses
-            span(v-for="item in 4")
+      .header__phone
+        .header-elipses
+          span(v-for="item in 4")
 </template>
 
 <script>
@@ -52,11 +41,16 @@ export default {
 <style scoped lang="scss">
 .header {
   position: relative;
-  height: 930px;
-  padding-top: 250px;
+  height: 800px;
+  padding-top: 200px;
   background: var(--header-bg);
   overflow: hidden;
   z-index: 500;
+
+  @media (min-width: 970px) {
+    padding-top: 250px;
+    height: 930px;
+  }
 }
 
 .header-bg {
@@ -80,69 +74,91 @@ export default {
   }
 }
 
-.header-bg-img:nth-child(1) {
-  bottom: 50px;
-  left: 0;
-  width: 90px;
-  height: 150px;
-
-  img {
-    object-position: left;
-  }
-}
-
-.header-bg-img:nth-child(2) {
-  bottom: 0;
-  left: 0;
-  width: 200px;
-  height: 250px;
-
-  img {
-    object-position: left;
-  }
-}
-
 .header-bg-img:nth-child(3) {
-  top: 0;
-  left: 0;
+  top: -90px;
   width: 250px;
+  left: 0;
   height: 400px;
 
   img {
     object-position: left;
   }
+
+  @media (min-width: 970px) {
+    top: 0;
+  }
 }
 
-.header-bg-img:nth-child(4) {
-  top: 50%;
-  right: 0;
-  width: 150px;
-  height: 300px;
+@media (min-width: 480px) {
+  .header-bg-img:nth-child(1) {
+    display: block;
+    bottom: 50px;
+    left: 0;
+    width: 90px;
+    height: 150px;
 
-  img {
-    object-position: right;
+    img {
+      object-position: left;
+    }
+  }
+
+  .header-bg-img:nth-child(2) {
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 250px;
+
+    img {
+      object-position: left;
+    }
+  }
+
+  .header-bg-img:nth-child(4) {
+    display: block;
+    top: 50%;
+    right: 0;
+    width: 150px;
+    height: 300px;
+
+    img {
+      object-position: right;
+    }
   }
 }
 
 .header-wrap {
-  display: grid;
-  align-items: flex-start;
-  gap: 95px;
-  grid-template-columns: 1fr 1fr;
+  position: relative;
+  width: 100%;
 }
 
-.header-col:nth-child(1) {
-  margin-top: 150px;
+.header-col {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 970px) {
+    margin-top: 150px;
+    margin-left: 0;
+  }
 }
 
 .header__title {
-  font-size: 40px;
+  font-size: 28px;
   font-family: var(--fontMuseoSlab-500);
   color: var(--textWhite);
   font-weight: 500;
   text-transform: uppercase;
   line-height: 1;
   letter-spacing: 1px;
+
+  @media (min-width: 480px) {
+    font-size: 34px;
+  }
+
+  @media (min-width: 720px) {
+    font-size: 40px;
+  }
 }
 
 .header__title + .header__subtitle {
@@ -150,25 +166,51 @@ export default {
 }
 
 .header__subtitle {
-  font-size: 26px;
+  font-size: 18px;
   font-family: var(--fontRobotoSlabRegular);
   font-weight: 400;
   color: var(--textWhite);
   line-height: 1.5;
+
+  @media (min-width: 480px) {
+    font-size: 22px;
+  }
+
+  @media (min-width: 720px) {
+    font-size: 26px;
+  }
 }
 
 .header__subtitle + .header__btns {
-  margin-top: 80px;
+  margin-top: 40px;
+
+  @media (min-width: 720px) {
+    margin-top: 80px;
+  }
 }
 
 .header__btns {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  flex-direction: column-reverse;
+
+  & > * + * {
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: 720px) {
+    flex-direction: row;
+
+    & > * + * {
+      margin: 0;
+      margin-left: 30px;
+    }
+  }
 }
 
 .header-btn {
   position: relative;
+  width: 100%;
   display: inline-block;
   font-size: 20px;
   padding: 20px 60px;
@@ -179,6 +221,10 @@ export default {
   border-radius: 10px;
   background: rgba(72, 148, 206, 0.7);
   transition: box-shadow 0.4s linear;
+
+  @media (min-width: 720px) {
+    width: auto;
+  }
 }
 
 .header-btn:hover {
@@ -186,30 +232,21 @@ export default {
 }
 
 .header__phone {
-  position: relative;
-}
-
-.header__phone-border {
-  img {
-    object-fit: contain;
-  }
-}
-
-.header__phone-img {
   position: absolute;
-  top: 111px;
-  left: 31px;
-  width: 397px;
-  height: 570px;
+  top: 400px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 100%;
+  max-width: 460px;
+  height: 930px;
+  background: url("~@/assets/img/header/phone-border.png") top left / contain
+    no-repeat;
+  z-index: -100;
 
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
+  @media (min-width: 970px) {
+    top: -90px;
+    right: 0;
+    transform: translateX(0);
   }
 }
 

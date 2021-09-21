@@ -27,16 +27,30 @@ export default {
 <style scoped lang="scss">
 .download {
   position: relative;
-  padding: 150px;
+  padding: 65px 0px 65px;
   background: var(--whiteBg);
   overflow: hidden;
   z-index: 500;
+
+  @media (min-width: 480px) {
+    padding: 150px 0px;
+  }
 }
 
 .download-wrap {
   display: grid;
-  grid-template-columns: 475px 570px;
-  gap: 65px;
+  grid-template-columns: minmax(0px, 570px);
+  grid-template-rows: minmax(0px, 300px) minmax(0px, 300px);
+  gap: 30px;
+
+  @media (min-width: 720px) {
+    grid-template-columns: minmax(0px, 475px) minmax(0px, 570px);
+    grid-template-rows: minmax(0px, 100%);
+  }
+
+  @media (min-width: 970px) {
+    gap: 65px;
+  }
 }
 
 .download-col {
@@ -44,32 +58,47 @@ export default {
 }
 
 .download__subtitle {
-  margin-bottom: 25px;
-  font-size: 22px;
+  margin-bottom: 20px;
+  font-size: 20px;
   font-family: var(--fontRalewayBold);
   color: rgba(73, 73, 73, 0.4);
   font-weight: bold;
   line-height: 1.2;
   text-align: left;
+
+  @media (min-width: 970px) {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
 }
 
 .download__title {
-  margin-bottom: 35px;
-  font-size: 32px;
+  margin-bottom: 25px;
+  font-size: 28px;
   font-family: var(--fontRalewayBold);
   color: var(--mainTextTitle);
   font-weight: bold;
   line-height: 1.2;
   text-align: left;
+
+  @media (min-width: 970px) {
+    font-size: 32px;
+    margin-bottom: 35px;
+  }
 }
 
 .download__text {
-  margin-bottom: 45px;
-  font-size: 20px;
+  margin-bottom: 30px;
+  font-size: 18px;
   font-family: var(--fontRalewayMedium);
   color: var(--mainTextDesc);
   line-height: 1.6;
   text-align: left;
+
+  @media (min-width: 970px) {
+    font-size: 20px;
+    margin-bottom: 45px;
+  }
 }
 
 .download__desc {
@@ -82,8 +111,12 @@ export default {
 
 .download__img {
   position: absolute;
-  height: 100%;
+  height: 300px;
   width: 100%;
+
+  @media (min-width: 720px) {
+    height: 100%;
+  }
 
   img {
     position: absolute;
@@ -91,7 +124,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 </style>

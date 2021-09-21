@@ -18,6 +18,8 @@
   --mainTextTitle: #494949;
   --mainTextDesc: #7c7c7c;
   --btnBlueBg: #66d4f4;
+  --success: #66d4f4;
+  --danger: #dc3545;
 
   --fontRalewayBold: "Raleway-Bold";
   --fontRalewayBoldExtra: "Raleway-ExtraBold";
@@ -37,6 +39,11 @@ body {
   display: block;
   width: 100%;
   font-family: var(--fontRobotoSlabRegular);
+}
+
+body.no-scroll {
+  height: 100%;
+  overflow: hidden;
 }
 
 a {

@@ -50,5 +50,5 @@ export default {
         priceCards(state) {
             return state.priceCards;
         }
-    }
+    },
 }

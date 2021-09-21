@@ -45,12 +45,16 @@ export default {
 <style scoped lang="scss">
 .price-cards {
   position: relative;
-  padding: 65px 100px;
+  padding: 65px 0px 65px;
   background: url("~@/assets/img/price-cards/bg-pattern.png") bottom left /
       cover no-repeat,
     linear-gradient(#f4fbfc, #f4fbfc);
   z-index: 500;
   overflow: hidden;
+
+  @media (min-width: 480px) {
+    padding: 65px 0px 100px;
+  }
 }
 
 .price-cards__title {
@@ -58,8 +62,22 @@ export default {
 }
 
 .price-cards__list-wrap {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  gap: 35px;
+  grid-template-columns: minmax(0, 320px);
+  justify-content: center;
+
+  @media (min-width: 720px) {
+    grid-template-columns: minmax(0, 320px) minmax(0, 320px);
+  }
+
+  @media (min-width: 970px) {
+    gap: 75px;
+  }
+
+  @media (min-width: 1170px) {
+    grid-template-columns: 320px 320px 320px;
+  }
 }
 
 .price-cards__list-item {
@@ -67,14 +85,18 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 320px;
+  width: 100%;
   background: url("~@/assets/img/price-cards/card-pattern.png") top left / cover
       no-repeat,
     linear-gradient(var(--whiteBg), var(--whiteBg));
   border: 1px solid #eaecf0;
   border-radius: 20px;
-  padding: 50px;
+  padding: 30px;
   transition: box-shadow 0.3s linear, transform 0.3s linear;
+
+  @media (min-width: 970px) {
+    padding: 50px;
+  }
 }
 
 .price-cards__list-item:hover {
@@ -84,9 +106,13 @@ export default {
 
 .price-cards__list-img {
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   width: 125px;
   height: 100px;
+
+  @media (min-width: 970px) {
+    margin-bottom: 60px;
+  }
 
   img {
     position: absolute;
@@ -110,12 +136,16 @@ export default {
 }
 
 .price-cards__list-price {
-  margin-bottom: 45px;
+  margin-bottom: 30px;
   font-family: var(--fontRalewayBold);
   font-weight: bold;
   line-height: 1.2;
   text-align: center;
   font-size: 20px;
+
+  @media (min-width: 970px) {
+    margin-bottom: 45px;
+  }
 
   span {
     background-image: linear-gradient(90deg, #5ee6f6, #2eb0ec);
@@ -130,8 +160,12 @@ export default {
 }
 
 .price-cards__list-tags {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   padding: 0;
+
+  @media (min-width: 970px) {
+    margin-bottom: 50px;
+  }
 }
 
 .price-cards__list-tags-item {
@@ -151,7 +185,7 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   line-height: 1;
-  background-color: rgb(102, 212, 244);
+  background: var(--btnBlueBg);
   border-radius: 24px;
   outline: none;
   border: none;
@@ -160,7 +194,7 @@ export default {
 
   &:hover {
     box-shadow: 0px 0px 51px 0px rgba(92, 149, 161, 0.33);
-    opacity: .7;
+    opacity: 0.7;
   }
 }
 </style>

@@ -7,14 +7,16 @@ section.subscribe
           :title="sectionSubscribe.title",
           :subtitle="sectionSubscribe.subtitle"
         )
-      form.subscribe__form(@submit.prevent)
-        input.subscribe__form-input(
+      form.subscribe__form(@submit="validFormSubscribe($event)")
+        input#subscribeFormName.subscribe__form-input(
           type="text",
-          :placeholder="sectionSubscribe.namePlaceholder"
+          :placeholder="sectionSubscribe.namePlaceholder",
+          v-model="nameSubs"
         )
-        input.subscribe__form-input(
+        input#subscribeFormEmail.subscribe__form-input(
           type="email",
-          :placeholder="sectionSubscribe.emailPlaceholder"
+          :placeholder="sectionSubscribe.emailPlaceholder",
+          v-model="emailSubs"
         )
         button.subscribe__form-btn {{ sectionSubscribe.btnText }}
 </template>
@@ -28,7 +30,42 @@ export default {
   },
   props: {},
   computed: {
-    ...mapGetters(["sectionSubscribe"]),
+    ...mapGetters([
+      "sectionSubscribe",
+      "nameSubscribe",
+      "emailSubscribe",
+      "nameSubscribeFunc",
+      "emailSubscribeFunc",
+    ]),
+    emailSubs: {
+      get() {
+        return this.$store.state.emailSubscribe;
+      },
+      set(value) {
+        this.$store.commit("emailSubs", value);
+      },
+    },
+    nameSubs: {
+      get() {
+        return this.$store.state.nameSubscribe;
+      },
+      set(value) {
+        this.$store.commit("nameSubs", value);
+      },
+    },
+  },
+  methods: {
+    validFormSubscribe(event) {
+      this.$store.dispatch("validFormSubscribe", event);
+    },
+  },
+  watch: {
+    emailSubscribe() {
+      this.emailSubscribeFunc;
+    },
+    nameSubscribe() {
+      this.nameSubscribeFunc;
+    },
   },
 };
 </script>
@@ -36,10 +73,14 @@ export default {
 <style lang="scss">
 .subscribe {
   position: relative;
-  padding: 65px 0px 110px;
+  padding: 65px 0px 65px;
   background: var(--whiteBg);
   overflow: hidden;
   z-index: 500;
+
+  @media (min-width: 480px) {
+    padding: 65px 0px 110px;
+  }
 }
 
 .subscribe__title {
@@ -49,7 +90,7 @@ export default {
 .subscribe__form {
   display: grid;
   gap: 30px;
-  grid-template-columns: 380px;
+  grid-template-columns: minmax(0, 380px);
   grid-template-rows: 75px 75px 75px;
   justify-content: center;
 }
@@ -80,21 +121,31 @@ export default {
   &:hover,
   &:focus {
     border: 2px solid rgba(0, 0, 0, 0.3);
-    background: rgb(255, 255, 255);
+    background: var(--whiteBg);
     box-shadow: 0px 8px 16px 0px rgba(92, 149, 161, 0.3);
   }
+}
+
+.subscribe__form-input.subscribe__form-input--success {
+  border: 2px solid var(--success);
+  box-shadow: 0px 0px 8px 0px var(--success);
+}
+
+.subscribe__form-input.subscribe__form-input--danger {
+  border: 2px solid var(--danger);
+  box-shadow: 0px 0px 8px 0px var(--danger);
 }
 
 .subscribe__form-btn {
   position: relative;
   font-size: 14px;
   font-family: var(--fontRalewayBold);
-  color: rgb(255, 255, 255);
+  color: var(--textWhite);
   font-weight: bold;
   text-transform: uppercase;
   line-height: 1;
   text-align: center;
-  background: rgb(102, 212, 244);
+  background: var(--success);
   outline: none;
   border: none;
   border-radius: 32px;
