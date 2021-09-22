@@ -1,5 +1,5 @@
 <template lang="pug">
-section.download
+section#download.download
   .container
     .download-wrap
       .download-col
@@ -20,6 +20,16 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters(["download"]),
+  },
+  methods: {
+    downloadAnimsFunc() {
+      this.$store.commit("downloadAnimsFunc");
+    },
+  },
+  mounted() {
+    if (window.innerWidth >= 720) {
+      this.downloadAnimsFunc();
+    }
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template lang="pug">
-section.subscribe
+section#subscribe.subscribe
   .container
     .subscribe-wrap
       .subscribe__title
@@ -58,6 +58,9 @@ export default {
     validFormSubscribe(event) {
       this.$store.dispatch("validFormSubscribe", event);
     },
+    subscribeAnimsFunc() {
+      this.$store.commit("subscribeAnimsFunc");
+    },
   },
   watch: {
     emailSubscribe() {
@@ -66,6 +69,11 @@ export default {
     nameSubscribe() {
       this.nameSubscribeFunc;
     },
+  },
+  mounted() {
+    if (window.innerWidth >= 720) {
+      this.subscribeAnimsFunc();
+    }
   },
 };
 </script>

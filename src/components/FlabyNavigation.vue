@@ -3,7 +3,7 @@ section#navigation.navigation
   .container
     .navigation-wrap
       .navigation__logo
-        router-link.navigation__logo-link(to="/")
+        router-link.navigation__logo-link(to="/", @click="scrollToTop()")
           img.navigation__logo-link-img(
             :src="require('@/assets/img/' + logo.src)",
             :alt="logo.alt"
@@ -11,10 +11,16 @@ section#navigation.navigation
       .navigation__nav
         ul.navigation__nav-row
           li.navigation__nav-item(v-for="item in navLinks")
-            router-link.navigation__nav-item-link(:to="item.link")
+            router-link.navigation__nav-item-link(
+              :to="item.link",
+              @click="scrollToTop()"
+            )
               span {{ item.text }}
       .navigation__form
-        btn-double(:btnText="navbtn", @action="formLoginUnlock()")
+        btn-double(
+          :btnText="navbtn",
+          @action="formLoginUnlock(), scrollToTop()"
+        )
       button.navigation__burger(@click="unlockSidebar(), hideScroll()")
         span
 </template>
@@ -41,16 +47,22 @@ export default {
     hideScroll() {
       this.$store.commit("hideScroll");
     },
+    scrollToTop() {
+      this.$store.commit("scrollToTop");
+    },
+    navigationAnimsFunc() {
+      this.$store.commit("navigationAnimsFunc");
+    },
+    navFixed() {
+      this.$store.commit("navFixed");
+    },
   },
   mounted() {
-    window.onscroll = () => {
-      const nav = document.getElementById("navigation");
-      if (window.pageYOffset > 250) {
-        nav.classList.add("navigation--fixed");
-      } else {
-        nav.classList.remove("navigation--fixed");
-      }
-    };
+    if (window.innerWidth >= 720) {
+      this.navigationAnimsFunc();
+    }
+
+    this.navFixed();
   },
 };
 </script>

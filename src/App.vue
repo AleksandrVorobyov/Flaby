@@ -46,6 +46,10 @@ body.no-scroll {
   overflow: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none;
 }

@@ -1,5 +1,5 @@
 <template lang="pug">
-section.footer
+section#footer.footer
   .container
     .footer-wrap
       .footer-col
@@ -23,6 +23,16 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters(["sectionFooter"]),
+  },
+  methods: {
+    footerAnimsFunc() {
+      this.$store.commit("footerAnimsFunc");
+    },
+  },
+  mounted() {
+    if (window.innerWidth >= 720) {
+      this.footerAnimsFunc();
+    }
   },
 };
 </script>

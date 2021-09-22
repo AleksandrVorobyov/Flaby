@@ -1,3 +1,5 @@
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 export default {
   state: {
     servicesOther: {
@@ -46,6 +48,36 @@ export default {
   getters: {
     servicesOther(state) {
       return state.servicesOther;
+    },
+  },
+  mutations: {
+    servicesOtherAnimsFunc() {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from(".services-other__title", {
+        scrollTrigger: {
+          trigger: "#services-other",
+          toggleActions: "restart pause restart pause",
+        },
+        yPercent: -500,
+        opacity: 0,
+        duration: 1,
+      });
+
+      const servicesOtherListItem = document.querySelectorAll(
+        ".services-other__list-item"
+      );
+    
+      servicesOtherListItem.forEach((item, idx) => {
+        gsap.from(item, {
+          scrollTrigger: {
+            trigger: "#services-other",
+            toggleActions: "restart pause restart pause",
+          },
+          opacity: 0,
+          duration: 1,
+          delay: 0.2 * idx,
+        });
+      });
     },
   },
 };

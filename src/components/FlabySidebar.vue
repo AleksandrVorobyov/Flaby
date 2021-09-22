@@ -9,7 +9,7 @@ section#sidebar.sidebar
           li.sidebar__links-item(v-for="item in navLinks")
             router-link.sidebar__links-item-link(
               :to="item.link",
-              @click="hideScroll"
+              @click="hideScroll(), scrollToTop()"
             )
               span {{ item.text }}
       .sidebar__login
@@ -34,6 +34,9 @@ export default {
     },
     hideScroll() {
       this.$store.commit("hideScroll");
+    },
+    scrollToTop() {
+      this.$store.commit("scrollToTop");
     },
   },
 };

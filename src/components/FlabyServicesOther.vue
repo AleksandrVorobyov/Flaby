@@ -1,5 +1,5 @@
 <template lang="pug">
-section.services-other
+section#services-other.services-other
   .container
     .services-other-wrap
       .services-other__title
@@ -27,6 +27,16 @@ export default {
   props: {},
   computed: {
     ...mapGetters(["servicesOther"]),
+  },
+  methods: {
+    servicesOtherAnimsFunc() {
+      this.$store.commit("servicesOtherAnimsFunc");
+    },
+  },
+  mounted() {
+    if (window.innerWidth >= 720) {
+      this.servicesOtherAnimsFunc();
+    }
   },
 };
 </script>

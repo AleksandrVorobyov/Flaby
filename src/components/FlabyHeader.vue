@@ -1,5 +1,5 @@
 <template lang="pug">
-section.header
+section#header.header
   .header-bg
     .header-bg-img(v-for="item in headerBg", :key="item")
       img(:src="require('@/assets/img/' + item.src)", :alt="item.alt")
@@ -18,6 +18,7 @@ section.header
 
 <script>
 import { mapGetters } from "vuex";
+
 import btnDownload from "./parts/btn-download.vue";
 export default {
   name: "FlabyHeader",
@@ -25,6 +26,11 @@ export default {
     btnDownload,
   },
   props: {},
+  methods: {
+    headerAnimsFunc() {
+      this.$store.commit("headerAnimsFunc");
+    },
+  },
   computed: {
     ...mapGetters([
       "headerBg",
@@ -34,7 +40,11 @@ export default {
       "googleStore",
     ]),
   },
-  mounted() {},
+  mounted() {
+    if (window.innerWidth >= 720) {
+      this.headerAnimsFunc();
+    }
+  },
 };
 </script>
 

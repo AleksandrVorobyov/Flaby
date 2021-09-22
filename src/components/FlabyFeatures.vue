@@ -1,5 +1,5 @@
 <template lang="pug">
-section.features
+section#features.features
   .container
     .features-wrap
       .features__info
@@ -18,6 +18,16 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters(["featuresInfo"]),
+  },
+  methods: {
+    featuresAnimsFunc() {
+      this.$store.commit("featuresAnimsFunc");
+    },
+  },
+  mounted() {
+    if (window.innerWidth >= 720) {
+      this.featuresAnimsFunc();
+    }
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template lang="pug">
-section.copy
+section.copy#copy
   .container
     .copy-wrap
       p.copy-text(v-for="item in copy.text") {{ item }}
@@ -9,6 +9,16 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters(["copy"]),
+  },
+  methods: {
+    copyAnimsFunc() {
+      this.$store.commit("copyAnimsFunc");
+    },
+  },
+  mounted() {
+    if(window.innerWidth >= 720 ) {
+      this.copyAnimsFunc();
+    }
   },
 };
 </script>

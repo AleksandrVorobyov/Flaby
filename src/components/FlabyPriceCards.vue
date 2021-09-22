@@ -1,5 +1,5 @@
 <template lang="pug">
-section.price-cards
+section#price-cards.price-cards
   .container
     .price-cards-wrap
       .price-cards__title
@@ -38,6 +38,16 @@ export default {
   },
   computed: {
     ...mapGetters(["priceCards"]),
+  },
+  methods: {
+    priceCardsAnimsFunc() {
+      this.$store.commit("priceCardsAnimsFunc");
+    },
+  },
+  mounted() {
+    if (window.innerWidth >= 720) {
+      this.priceCardsAnimsFunc();
+    }
   },
 };
 </script>

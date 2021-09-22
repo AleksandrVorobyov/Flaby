@@ -1,5 +1,5 @@
 <template lang="pug">
-section.services-our
+section#services-our.services-our
   .container
     .services-our-wrap
       .services-our__title
@@ -26,6 +26,16 @@ export default {
   props: {},
   computed: {
     ...mapGetters(["servicesOur", "servicesOurItems"]),
+  },
+  methods: {
+    servicesOurAnimsFunc() {
+      this.$store.commit("servicesOurAnimsFunc");
+    },
+  },
+  mounted() {
+    if (window.innerWidth >= 720) {
+      this.servicesOurAnimsFunc();
+    }
   },
 };
 </script>

@@ -1,3 +1,5 @@
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 export default {
   state: {
     featuresInfo: {
@@ -19,6 +21,28 @@ export default {
       return state.featuresInfo;
     },
   },
+  mutations: {
+    featuresAnimsFunc() {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from(".features__info", {
+        scrollTrigger: {
+          trigger: "#features",
+          toggleActions: "restart pause restart pause",
+        },
+        xPercent: 500,
+        opacity: 0,
+        duration: 1,
+      });
+
+      gsap.from(".features-wrap", {
+        scrollTrigger: {
+          trigger: "#features",
+          toggleActions: "restart pause restart pause",
+        },
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+      });
+    },
+  },
 };
-
-

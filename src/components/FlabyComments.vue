@@ -1,5 +1,5 @@
 <template lang="pug">
-section.comments
+section#comments.comments
   .container
     .comments-wrap
       .comments__title
@@ -46,6 +46,14 @@ export default {
     nextSlide() {
       this.$store.commit("nextSlide");
     },
+    commentsAnimsFunc() {
+      this.$store.commit("commentsAnimsFunc");
+    },
+  },
+  mounted() {
+    if (window.innerWidth >= 720) {
+      this.commentsAnimsFunc();
+    }
   },
 };
 </script>
