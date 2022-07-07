@@ -82,33 +82,35 @@ export default {
       state.nameSubscribe = message;
     },
     subscribeAnimsFunc() {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.from(".subscribe__title", {
-        scrollTrigger: {
-          trigger: "#subscribe",
-          toggleActions: "restart pause restart pause",
-        },
-        yPercent: -500,
-        opacity: 0,
-        duration: 1,
-      });
-
-      const subscribeFormItem = document.querySelectorAll(
-        ".subscribe__form > *"
-      );
-
-      subscribeFormItem.forEach((item, idx) => {
-        gsap.from(item, {
+      if (window.innerWidth >= 768 && window.innerHeight >= 850) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".subscribe__title", {
           scrollTrigger: {
             trigger: "#subscribe",
-            toggleActions: "restart pause restart pause",
+            toggleActions: "restart pause play pause",
           },
+          yPercent: -500,
           opacity: 0,
-          scale: 0.6,
           duration: 1,
-          delay: 0.4 * idx,
         });
-      });
+
+        const subscribeFormItem = document.querySelectorAll(
+          ".subscribe__form > *"
+        );
+
+        subscribeFormItem.forEach((item, idx) => {
+          gsap.from(item, {
+            scrollTrigger: {
+              trigger: "#subscribe",
+              toggleActions: "restart pause play pause",
+            },
+            opacity: 0,
+            scale: 0.6,
+            duration: 1,
+            delay: 0.4 * idx,
+          });
+        });
+      }
     },
   },
   actions: {

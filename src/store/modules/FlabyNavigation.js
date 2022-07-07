@@ -45,11 +45,13 @@ export default {
       console.log("form login unlock!");
     },
     navigationAnimsFunc() {
-      gsap.from("#navigation", {
-        y: -200,
-        duration: 2,
-        ease: "expo.outout",
-      });
+      if (window.innerWidth >= 768 && window.innerHeight >= 850) {
+        gsap.from("#navigation", {
+          y: -200,
+          duration: 2,
+          ease: "expo.outout",
+        });
+      }
     },
     navFixed() {
       window.onscroll = () => {

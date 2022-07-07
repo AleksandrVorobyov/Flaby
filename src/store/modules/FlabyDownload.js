@@ -20,26 +20,28 @@ export default {
   },
   mutations: {
     downloadAnimsFunc() {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.from(".download-col:nth-child(1)", {
-        scrollTrigger: {
-          trigger: "#download",
-          toggleActions: "restart pause restart pause",
-        },
-        xPercent: -500,
-        opacity: 0,
-        duration: 1,
-      });
+      if (window.innerWidth >= 768 && window.innerHeight >= 850) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".download-col:nth-child(1)", {
+          scrollTrigger: {
+            trigger: "#download",
+            toggleActions: "restart pause play pause",
+          },
+          xPercent: -500,
+          opacity: 0,
+          duration: 1,
+        });
 
-      gsap.from(".download-col:nth-child(2)", {
-        scrollTrigger: {
-          trigger: "#download",
-          toggleActions: "restart pause restart pause",
-        },
-        opacity: 0,
-        xPercent: 500,
-        duration: 1,
-      });
+        gsap.from(".download-col:nth-child(2)", {
+          scrollTrigger: {
+            trigger: "#download",
+            toggleActions: "restart pause play pause",
+          },
+          opacity: 0,
+          xPercent: 500,
+          duration: 1,
+        });
+      }
     },
   },
 };

@@ -55,33 +55,35 @@ export default {
   },
   mutations: {
     priceCardsAnimsFunc() {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.from(".price-cards__title", {
-        scrollTrigger: {
-          trigger: "#price-cards",
-          toggleActions: "restart pause restart pause",
-        },
-        yPercent: -500,
-        opacity: 0,
-        duration: 1,
-      });
-
-      const priceCardsListItem = document.querySelectorAll(
-        ".price-cards__list-item"
-      );
-
-      priceCardsListItem.forEach((item, idx) => {
-        gsap.from(item, {
+      if (window.innerWidth >= 768 && window.innerHeight >= 850) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".price-cards__title", {
           scrollTrigger: {
             trigger: "#price-cards",
-            toggleActions: "restart pause restart pause",
+            toggleActions: "restart pause play pause",
           },
-          scale: 0.4,
+          yPercent: -500,
           opacity: 0,
           duration: 1,
-          delay: 0.5 * idx,
         });
-      });
+
+        const priceCardsListItem = document.querySelectorAll(
+          ".price-cards__list-item"
+        );
+
+        priceCardsListItem.forEach((item, idx) => {
+          gsap.from(item, {
+            scrollTrigger: {
+              trigger: "#price-cards",
+              toggleActions: "restart pause play pause",
+            },
+            scale: 0.4,
+            opacity: 0,
+            duration: 1,
+            delay: 0.5 * idx,
+          });
+        });
+      }
     },
   },
 };

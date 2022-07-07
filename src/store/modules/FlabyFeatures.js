@@ -23,26 +23,28 @@ export default {
   },
   mutations: {
     featuresAnimsFunc() {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.from(".features__info", {
-        scrollTrigger: {
-          trigger: "#features",
-          toggleActions: "restart pause restart pause",
-        },
-        xPercent: 500,
-        opacity: 0,
-        duration: 1,
-      });
+      if (window.innerWidth >= 768 && window.innerHeight >= 850) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".features__info", {
+          scrollTrigger: {
+            trigger: "#features",
+            toggleActions: "restart pause play pause",
+          },
+          xPercent: 500,
+          opacity: 0,
+          duration: 1,
+        });
 
-      gsap.from(".features-wrap", {
-        scrollTrigger: {
-          trigger: "#features",
-          toggleActions: "restart pause restart pause",
-        },
-        opacity: 0,
-        duration: 1,
-        delay: 0.2,
-      });
+        gsap.from(".features-wrap", {
+          scrollTrigger: {
+            trigger: "#features",
+            toggleActions: "restart pause play pause",
+          },
+          opacity: 0,
+          duration: 1,
+          delay: 0.2,
+        });
+      }
     },
   },
 };

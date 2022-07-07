@@ -54,73 +54,75 @@ export default {
   },
   mutations: {
     headerAnimsFunc() {
-      gsap.registerPlugin(ScrollTrigger);
+      if (window.innerWidth >= 768 && window.innerHeight >= 850) {
+        gsap.registerPlugin(ScrollTrigger);
 
-      gsap.from(".header-col", {
-        scrollTrigger: {
-          trigger: "#header",
-          toggleActions: "restart pause restart pause",
-        },
-        yPercent: 500,
-        duration: 1,
-      });
-      gsap.from(".header__phone", {
-        scrollTrigger: {
-          trigger: "#header",
-          toggleActions: "restart pause restart pause",
-        },
-        yPercent: 500,
-        opacity: 0,
-        duration: 1,
-      });
-      gsap.from(".header-bg-img:nth-child(1), .header-bg-img:nth-child(2)", {
-        scrollTrigger: {
-          trigger: "#header",
-          toggleActions: "restart pause restart pause",
-        },
-        xPercent: -300,
-        opacity: 0,
-        duration: 1,
-        ease: "expo.outout",
-        delay: 0,
-      });
+        gsap.from(".header-col", {
+          scrollTrigger: {
+            trigger: "#header",
+            toggleActions: "restart pause play pause",
+          },
+          yPercent: 500,
+          duration: 1,
+        });
+        gsap.from(".header__phone", {
+          scrollTrigger: {
+            trigger: "#header",
+            toggleActions: "restart pause play pause",
+          },
+          yPercent: 500,
+          opacity: 0,
+          duration: 1,
+        });
+        gsap.from(".header-bg-img:nth-child(1), .header-bg-img:nth-child(2)", {
+          scrollTrigger: {
+            trigger: "#header",
+            toggleActions: "restart pause play pause",
+          },
+          xPercent: -300,
+          opacity: 0,
+          duration: 1,
+          ease: "expo.outout",
+          delay: 0,
+        });
 
-      gsap.from(".header-bg-img:nth-child(3)", {
-        scrollTrigger: {
-          trigger: "#header",
-          toggleActions: "restart pause restart pause",
-        },
-        xPercent: -300,
-        opacity: 0,
-        duration: 1,
-        ease: "expo.outout",
-        delay: 0,
-      });
+        gsap.from(".header-bg-img:nth-child(3)", {
+          scrollTrigger: {
+            trigger: "#header",
+            toggleActions: "restart pause play pause",
+          },
+          xPercent: -300,
+          opacity: 0,
+          duration: 1,
+          ease: "expo.outout",
+          delay: 0,
+        });
 
-      gsap.from(".header-bg-img:nth-child(4)", {
-        scrollTrigger: {
-          trigger: "#header",
-          toggleActions: "restart pause restart pause",
-        },
-        xPercent: 300,
-        opacity: 0,
-        duration: 1,
-        ease: "expo.outout",
-        delay: 0,
-      });
+        gsap.from(".header-bg-img:nth-child(4)", {
+          scrollTrigger: {
+            trigger: "#header",
+            toggleActions: "restart pause play pause",
+          },
+          xPercent: 300,
+          opacity: 0,
+          duration: 1,
+          ease: "expo.outout",
+          delay: 0,
+        });
 
-      const elipses = document.querySelectorAll(".header-elipses span");
-      gsap.from(elipses, {
-        scrollTrigger: {
-          trigger: "#header",
-          toggleActions: "restart pause restart pause",
-        },
-        scale: 0,
-        opacity: 0,
-        duration: 1,
-        ease: "expo.outout",
-        delay: 0,
-      });
+        const elipses = document.querySelectorAll(".header-elipses span");
+        gsap.from(elipses, {
+          scrollTrigger: {
+            trigger: "#header",
+            toggleActions: "restart pause play pause",
+          },
+          scale: 0,
+          opacity: 0,
+          duration: 1,
+          ease: "expo.outout",
+          delay: 0,
+        });
+      }
     },
   },
 };

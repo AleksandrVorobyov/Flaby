@@ -102,26 +102,28 @@ export default {
       });
     },
     commentsAnimsFunc() {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.from(".comments__title", {
-        scrollTrigger: {
-          trigger: "#comments",
-          toggleActions: "restart pause restart pause",
-        },
-        yPercent: -500,
-        opacity: 0,
-        duration: 1,
-      });
+      if (window.innerWidth >= 768 && window.innerHeight >= 850) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".comments__title", {
+          scrollTrigger: {
+            trigger: "#comments",
+            toggleActions: "restart pause play pause",
+          },
+          yPercent: -500,
+          opacity: 0,
+          duration: 1,
+        });
 
-      gsap.from(".comments__content", {
-        scrollTrigger: {
-          trigger: "#comments",
-          toggleActions: "restart pause restart pause",
-        },
-        opacity: 0,
-        scale: 0.5,
-        duration: 1,
-      });
+        gsap.from(".comments__content", {
+          scrollTrigger: {
+            trigger: "#comments",
+            toggleActions: "restart pause play pause",
+          },
+          opacity: 0,
+          scale: 0.5,
+          duration: 1,
+        });
+      }
     },
   },
   actions: {},

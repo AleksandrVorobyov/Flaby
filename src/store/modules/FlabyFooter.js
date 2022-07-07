@@ -134,21 +134,23 @@ export default {
   },
   mutations: {
     footerAnimsFunc() {
-      gsap.registerPlugin(ScrollTrigger);
-      const footerColItem = document.querySelectorAll(".footer-col");
+      if (window.innerWidth >= 768 && window.innerHeight >= 850) {
+        gsap.registerPlugin(ScrollTrigger);
+        const footerColItem = document.querySelectorAll(".footer-col");
 
-      footerColItem.forEach((item, idx) => {
-        gsap.from(item, {
-          scrollTrigger: {
-            trigger: "#footer",
-            toggleActions: "restart pause restart pause",
-          },
-          opacity: 0,
-          yPercent: 20,
-          duration: 1,
-          delay: 0.3 * idx,
+        footerColItem.forEach((item, idx) => {
+          gsap.from(item, {
+            scrollTrigger: {
+              trigger: "#footer",
+              toggleActions: "restart pause play pause",
+            },
+            opacity: 0,
+            yPercent: 20,
+            duration: 1,
+            delay: 0.3 * idx,
+          });
         });
-      });
+      }
     },
   },
 };

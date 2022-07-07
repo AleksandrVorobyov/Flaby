@@ -43,31 +43,33 @@ export default {
   },
   mutations: {
     servicesOurAnimsFunc() {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.from(".services-our__title", {
-        scrollTrigger: {
-          trigger: "#services-our",
-          toggleActions: "restart pause restart pause",
-        },
-        yPercent: -500,
-        opacity: 0,
-        duration: 1,
-      });
-
-      const servicesOurItems = document.querySelectorAll(".services-our__item");
-
-      servicesOurItems.forEach((item, idx) => {
-        gsap.from(item, {
+      if (window.innerWidth >= 768 && window.innerHeight >= 850) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".services-our__title", {
           scrollTrigger: {
             trigger: "#services-our",
-            toggleActions: "restart pause restart pause",
+            toggleActions: "restart pause play pause",
           },
-          yPercent: 500,
+          yPercent: -500,
           opacity: 0,
           duration: 1,
-          delay: idx * 0.2,
         });
-      });
+
+        const servicesOurItems = document.querySelectorAll(".services-our__item");
+
+        servicesOurItems.forEach((item, idx) => {
+          gsap.from(item, {
+            scrollTrigger: {
+              trigger: "#services-our",
+              toggleActions: "restart pause play pause",
+            },
+            yPercent: 500,
+            opacity: 0,
+            duration: 1,
+            delay: idx * 0.2,
+          });
+        });
+      }
     },
   },
 };

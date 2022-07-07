@@ -52,32 +52,34 @@ export default {
   },
   mutations: {
     servicesOtherAnimsFunc() {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.from(".services-other__title", {
-        scrollTrigger: {
-          trigger: "#services-other",
-          toggleActions: "restart pause restart pause",
-        },
-        yPercent: -500,
-        opacity: 0,
-        duration: 1,
-      });
-
-      const servicesOtherListItem = document.querySelectorAll(
-        ".services-other__list-item"
-      );
-    
-      servicesOtherListItem.forEach((item, idx) => {
-        gsap.from(item, {
+      if (window.innerWidth >= 768 && window.innerHeight >= 850) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".services-other__title", {
           scrollTrigger: {
             trigger: "#services-other",
-            toggleActions: "restart pause restart pause",
+            toggleActions: "restart pause play pause",
           },
+          yPercent: -500,
           opacity: 0,
           duration: 1,
-          delay: 0.2 * idx,
         });
-      });
+
+        const servicesOtherListItem = document.querySelectorAll(
+          ".services-other__list-item"
+        );
+
+        servicesOtherListItem.forEach((item, idx) => {
+          gsap.from(item, {
+            scrollTrigger: {
+              trigger: "#services-other",
+              toggleActions: "restart pause play pause",
+            },
+            opacity: 0,
+            duration: 1,
+            delay: 0.2 * idx,
+          });
+        });
+      }
     },
   },
 };

@@ -142,6 +142,29 @@ export default {
   margin-bottom: 80px;
 }
 
+.comments .comments__content-slider__item {
+  position: absolute;
+  transition: all 0.3s ease-in;
+  padding: 80px 20px 20px;
+  width: 100%;
+  min-height: 350px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dae0e1;
+  border-radius: 10px;
+  background: var(--whiteBg);
+  box-shadow: 0px 0px 15px 0px #dae0e1;
+  cursor: pointer;
+
+  @media (min-width: 720px) {
+    padding: 80px 80px 20px;
+  }
+
+  @media (min-width: 480px) {
+    padding: 80px 40px 20px;
+  }
+}
+
 .comments__content-slider-arrow {
   display: flex;
 
